@@ -1,0 +1,10 @@
+/* Shared global styles */
+* {
+    box-sizing: border-box;
+    user-select: none;
+}
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

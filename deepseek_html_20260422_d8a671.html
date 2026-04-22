@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Rig Setup</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #111; color: #eee; }
+        #container { display: flex; gap: 30px; flex-wrap: wrap; }
+        #viewer { flex: 2; height: 500px; background: #222; border-radius: 12px; position: relative; }
+        #controlsPanel { flex: 1; background: #1e1e1e; padding: 20px; border-radius: 12px; }
+        canvas { width: 100%; height: 100%; display: block; border-radius: 8px; }
+        .bone-list { max-height: 300px; overflow-y: auto; margin: 15px 0; }
+        .bone-item { display: flex; justify-content: space-between; margin: 5px 0; padding: 5px; background: #2c2c2c; border-radius: 6px; }
+        select { background: #333; color: white; border: none; padding: 5px; border-radius: 4px; }
+        button { background: #4caf50; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; margin-top: 15px; }
+        button.save { background: #2196f3; }
+        input { margin: 10px 0; padding: 8px; width: 100%; box-sizing: border-box; }
+        h3 { margin-top: 0; }
+    </style>
+</head>
+<body>
+    <h1>📦 3D Character Rig Setup</h1>
+    <div id="container">
+        <div id="viewer"></div>
+        <div id="controlsPanel">
+            <h3>Step 1: Upload GLTF/GLB</h3>
+            <input type="file" id="modelUpload" accept=".gltf,.glb">
+            <div id="boneContainer" class="bone-list">
+                <p>No model loaded. Upload a rigged character.</p>
+            </div>
+            <h3>Step 2: Assign Bone Roles</h3>
+            <div id="roleAssignments"></div>
+            <button id="saveConfig" class="save">💾 Save Configuration (config.json)</button>
+            <p style="font-size:12px; margin-top:20px;">Config saved locally and used in main page.</p>
+        </div>
+    </div>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.128.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.128.0/examples/jsm/"
+            }
+        }
+    </script>
+    <script type="module" src="rigSetup.js"></script>
+</body>
+</html>
